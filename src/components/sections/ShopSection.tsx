@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { ShoppingBag, Heart } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 export function ShopSection() {
   const products = [
     {

@@ -1,63 +1,63 @@
 import React from 'react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 export function TimelineSection() {
   const events = [
-  {
-    year: '1948',
-    title: 'The Beginning',
-    desc: 'Born Steven Victor Tallarico on March 26 in Yonkers, New York.'
-  },
-  {
-    year: '1970',
-    title: 'Aerosmith Formed',
-    desc: 'Meets Joe Perry and Tom Hamilton; Aerosmith is formed in Boston.'
-  },
-  {
-    year: '1973',
-    title: 'Dream On',
-    desc: "Debut album 'Aerosmith' released; 'Dream On' becomes a sleeper hit."
-  },
-  {
-    year: '1975',
-    title: 'Superstardom',
-    desc: "'Toys in the Attic' catapults the band to fame; 'Walk This Way' becomes an anthem."
-  },
-  {
-    year: '1986',
-    title: 'Walk This Way',
-    desc: 'Historic collaboration with Run-DMC bridges rock and hip-hop.'
-  },
-  {
-    year: '1989',
-    title: 'Grammy Win',
-    desc: "'Pump' wins Grammy; 'Janie's Got a Gun' tackles serious themes."
-  },
-  {
-    year: '1998',
-    title: 'Number One',
-    desc: "'I Don't Want to Miss a Thing' from Armageddon hits #1."
-  },
-  {
-    year: '2001',
-    title: 'Hall of Fame',
-    desc: 'Inducted into the Rock and Roll Hall of Fame.'
-  },
-  {
-    year: '2011',
-    title: 'American Idol',
-    desc: 'Steven Tyler joins American Idol as a judge, winning over a new generation.'
-  },
-  {
-    year: '2016',
-    title: 'Solo Country',
-    desc: "Releases solo country album 'We're All Somebody from Somewhere'."
-  },
-  {
-    year: '2024',
-    title: 'End of an Era',
-    desc: 'Aerosmith officially retires from touring after 50+ legendary years.'
-  }];
+    {
+      year: '1948',
+      title: 'The Beginning',
+      desc: 'Born Steven Victor Tallarico on March 26 in Yonkers, New York.'
+    },
+    {
+      year: '1970',
+      title: 'Aerosmith Formed',
+      desc: 'Meets Joe Perry and Tom Hamilton; Aerosmith is formed in Boston.'
+    },
+    {
+      year: '1973',
+      title: 'Dream On',
+      desc: "Debut album 'Aerosmith' released; 'Dream On' becomes a sleeper hit."
+    },
+    {
+      year: '1975',
+      title: 'Superstardom',
+      desc: "'Toys in the Attic' catapults the band to fame; 'Walk This Way' becomes an anthem."
+    },
+    {
+      year: '1986',
+      title: 'Walk This Way',
+      desc: 'Historic collaboration with Run-DMC bridges rock and hip-hop.'
+    },
+    {
+      year: '1989',
+      title: 'Grammy Win',
+      desc: "'Pump' wins Grammy; 'Janie's Got a Gun' tackles serious themes."
+    },
+    {
+      year: '1998',
+      title: 'Number One',
+      desc: "'I Don't Want to Miss a Thing' from Armageddon hits #1."
+    },
+    {
+      year: '2001',
+      title: 'Hall of Fame',
+      desc: 'Inducted into the Rock and Roll Hall of Fame.'
+    },
+    {
+      year: '2011',
+      title: 'American Idol',
+      desc: 'Steven Tyler joins American Idol as a judge, winning over a new generation.'
+    },
+    {
+      year: '2016',
+      title: 'Solo Country',
+      desc: "Releases solo country album 'We're All Somebody from Somewhere'."
+    },
+    {
+      year: '2024',
+      title: 'End of an Era',
+      desc: 'Aerosmith officially retires from touring after 50+ legendary years.'
+    }];
 
   return (
     <section
@@ -91,9 +91,9 @@ export function TimelineSection() {
 
           <div className="space-y-12">
             {events.map((event, index) =>
-            <ScrollReveal key={index} delay={index * 0.05}>
+              <ScrollReveal key={index} delay={index * 0.05}>
                 <div
-                className={`relative flex items-center md:justify-between ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-row`}>
+                  className={`relative flex items-center md:justify-between ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-row`}>
 
                   {/* Content Box */}
                   <div className="ml-12 md:ml-0 md:w-[45%] bg-[#1a1a1a]/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-[#d4af37] transition-colors group">

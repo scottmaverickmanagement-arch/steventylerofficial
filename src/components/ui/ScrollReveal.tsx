@@ -1,4 +1,4 @@
-import React, { useRef, Children } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
 type Direction = 'up' | 'down' | 'left' | 'right' | 'none';
 type ScrollRevealProps = {
@@ -10,11 +10,11 @@ type ScrollRevealProps = {
   once?: boolean;
 };
 const getDirectionOffset = (
-direction: Direction)
-: {
-  x: number;
-  y: number;
-} => {
+  direction: Direction)
+  : {
+    x: number;
+    y: number;
+  } => {
   switch (direction) {
     case 'up':
       return {
@@ -136,7 +136,7 @@ export function StaggerItem({
 
 
 
-}: {children: React.ReactNode;className?: string;}) {
+}: { children: React.ReactNode; className?: string; }) {
   const itemVariants: Variants = {
     hidden: {
       opacity: 0,

@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { Mail, MapPin, Phone, ChevronDown } from 'lucide-react';
+import { Mail, MapPin, ChevronDown } from 'lucide-react';
 export function ContactSection() {
   return (
     <section

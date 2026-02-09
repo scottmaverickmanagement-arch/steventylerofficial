@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { Ticket, Music, Gift, Video, Star, Mail, Heart, ExternalLink } from 'lucide-react';
 export function FanbaseSection() {
