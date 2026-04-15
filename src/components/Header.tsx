@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 export function Header() {
@@ -13,33 +14,29 @@ export function Header() {
   }, []);
   const navItems = [
     {
-      name: 'Home',
-      href: '#home'
-    },
-    {
       name: 'Fanbase',
-      href: '#fanbase'
+      href: '/fanbase'
     },
     {
       name: 'Aerosmith',
-      href: '#aerosmith'
+      href: '/aerosmith'
     },
     {
       name: 'Discography',
-      href: '#discography'
+      href: '/discography'
     },
     {
       name: 'Timeline',
-      href: '#timeline'
+      href: '/timeline'
     },
 
     {
       name: 'Gallery',
-      href: '#gallery'
+      href: '/gallery'
     },
     {
       name: 'Contact',
-      href: '#contact'
+      href: '/contact'
     }];
 
   return (
@@ -47,24 +44,24 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md py-4 border-b border-gray-800' : 'bg-transparent py-6'}`}>
 
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        <a
-          href="#"
+        <Link
+          to="/"
           className="text-2xl font-bold font-playfair text-white tracking-wider">
 
           STEVEN <span className="text-[#d4af37]">TYLER</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8">
           {navItems.map((item) =>
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className="text-sm uppercase tracking-widest text-gray-300 hover:text-[#d4af37] transition-colors relative group">
 
               {item.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4af37] transition-all duration-300 group-hover:w-full" />
-            </a>
+            </Link>
           )}
         </nav>
 
@@ -97,14 +94,14 @@ export function Header() {
 
             <nav className="flex flex-col p-4 space-y-4">
               {navItems.map((item) =>
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-gray-300 hover:text-[#d4af37] uppercase tracking-widest text-sm py-2 block"
                   onClick={() => setIsMobileMenuOpen(false)}>
 
                   {item.name}
-                </a>
+                </Link>
               )}
             </nav>
           </motion.div>
