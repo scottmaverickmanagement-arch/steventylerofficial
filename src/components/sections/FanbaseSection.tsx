@@ -27,7 +27,7 @@ export function FanbaseSection() {
   const emailSubject = 'Membership Inquiry for Steven Tyler Fanbase';
   const emailBody = `Hi Rebecca,
 
-I'm interested in joining the exclusive Steven Tyler fanbase. Please provide payment details for the $5000 donation to Janie's Fund and instructions on how to proceed.
+I'm interested in joining the exclusive Steven Tyler fanbase. Please provide payment details for the $500 donation to Janie's Fund and instructions on how to proceed.
 
 Thank you!`;
 
@@ -110,7 +110,7 @@ Thank you!`;
                     Membership Contribution
                   </p>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    Membership requires a <span className="text-[#d4af37] font-bold">$5,000 donation to Janie's Fund</span>, Steven Tyler's charity dedicated to helping abused and neglected girls. Your manager will provide secure payment instructions and confirm your access.
+                    Membership requires a <span className="text-[#d4af37] font-bold">$500 donation to Janie's Fund</span>, Steven Tyler's charity dedicated to helping abused and neglected girls. Your manager will provide secure payment instructions and confirm your access.
                   </p>
                 </div>
                 <p className="text-xs text-gray-500 italic">

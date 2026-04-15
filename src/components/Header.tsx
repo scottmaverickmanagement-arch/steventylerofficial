@@ -14,12 +14,12 @@ export function Header() {
   }, []);
   const navItems = [
     {
-      name: 'Fanbase',
-      href: '/fanbase'
-    },
-    {
       name: 'Aerosmith',
       href: '/aerosmith'
+    },
+    {
+      name: 'Fanbase',
+      href: '/fanbase'
     },
     {
       name: 'Discography',
@@ -52,12 +52,12 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden md:flex gap-8 absolute left-[55%] transform -translate-x-1/2">
           {navItems.map((item) =>
             <Link
               key={item.name}
               to={item.href}
-              className="text-sm uppercase tracking-widest text-gray-300 hover:text-[#d4af37] transition-colors relative group">
+              className="text-sm font-playfair font-bold uppercase tracking-widest text-gray-300 hover:text-[#d4af37] transition-colors relative group">
 
               {item.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#d4af37] transition-all duration-300 group-hover:w-full" />
