@@ -65,6 +65,16 @@ export function Header() {
           )}
         </nav>
 
+        {/* Action Button (Desktop) */}
+        <div className="hidden md:flex items-center">
+          <Link
+            to="/janies-fund"
+            className="px-6 py-2 bg-[#d4af37] text-white font-playfair font-bold uppercase tracking-widest text-sm rounded hover:bg-[#b8952b] transition-colors shadow-lg hover:shadow-[#d4af37]/20"
+          >
+            Janie's Fund
+          </Link>
+        </div>
+
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-white"
@@ -103,6 +113,13 @@ export function Header() {
                   {item.name}
                 </Link>
               )}
+              <Link
+                to="/janies-fund"
+                className="inline-block mt-4 text-center px-6 py-3 bg-[#d4af37] text-white font-playfair font-bold uppercase tracking-widest text-sm rounded hover:bg-[#b8952b] transition-colors shadow-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Janie's Fund
+              </Link>
             </nav>
           </motion.div>
         }

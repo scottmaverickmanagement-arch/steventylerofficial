@@ -67,7 +67,7 @@ export function TimelineSection() {
       {/* Background Image Fixed */}
       <div className="absolute inset-0 z-0 opacity-20">
         <img
-          src="/Aerosmith,_Steven_Tyler_(4).jpg"
+          src="/assets/images/Aerosmith,_Steven_Tyler_(4).jpg"
           alt="Steven Tyler Reflection"
           className="w-full h-full object-cover grayscale" />
 

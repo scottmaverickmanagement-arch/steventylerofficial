@@ -1,115 +1,31 @@
 import React, { useState } from 'react';
 import { ScrollReveal } from '../ui/ScrollReveal';
-import { X, ZoomIn } from 'lucide-react';
-export function GallerySection() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState('All');
-  const categories = [
-    'All',
-    'On Stage',
-    'Behind the Scenes',
-    'The Band',
-    'Fan Moments'];
+import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
+import { galleryCategories, galleryImages } from '../../data/galleryData';
 
-  const images = [
-    {
-      url: "/grok-image-b86ef188-1ba2-479f-81af-dade71c20ad1.png",
-      category: 'Behind the Scenes',
-      caption: 'Steven Tyler — A moment of calm before the storm',
-      size: 'col-span-1 md:col-span-2 row-span-2'
-    },
-    {
-      url: "/download_(26).jpg",
-      category: 'The Band',
-      caption: "Aerosmith — America's Greatest Rock and Roll Band",
-      size: 'col-span-1'
-    },
-    {
-      url: "/Aerosmith,_Steven_Tyler_(4).jpg",
-      category: 'Behind the Scenes',
-      caption: 'Reflections of a Rock Legend',
-      size: 'col-span-1 row-span-2'
-    },
-    {
-      url: "/_3_Steven_Tyler__3_Cs.jpg",
-      category: 'Behind the Scenes',
-      caption: 'Living the Dream — Steven Tyler off duty',
-      size: 'col-span-1'
-    },
-    {
-      url: "/_3_Aerosmith__3_Cs.jpg",
-      category: 'Fan Moments',
-      caption: 'Walk This Way — The spirit of Aerosmith lives everywhere',
-      size: 'col-span-1 md:col-span-2'
-    },
-    {
-      url: "/Aerosmith,_Steven_Tyler_(3).jpg",
-      category: 'Behind the Scenes',
-      caption: 'A Rose for the Road — Steven Tyler on tour',
-      size: 'col-span-1 row-span-2'
-    },
-    {
-      url: "/Steven_and_Mia.jpg",
-      category: 'Behind the Scenes',
-      caption: 'Steven Tyler — Fashion icon, rock legend, always unforgettable',
-      size: 'col-span-1'
-    },
-    {
-      url: "/Aerosmith,_Steven_Tyler_(2).jpg",
-      category: 'Fan Moments',
-      caption:
-        'Steven Tyler at the Hard Rock Cafe — Guitar in hand, magic in the air',
-      size: 'col-span-1 md:col-span-2 row-span-2'
-    },
-    {
-      url: "/Memory_on_memory_Hard_Rock_Cafe_1994.jpg",
-      category: 'Fan Moments',
-      caption:
-        'Hard Rock Cafe, 1994 — Surrounded by memories of a legendary career',
-      size: 'col-span-1'
-    },
-    {
-      url: "/download_(19).jpg",
-      category: 'Fan Moments',
-      caption: "Aerosmith's Star — Hard Rock Cafe Walk of Fame",
-      size: 'col-span-1'
-    },
-    {
-      url: "/aerosmith-peace-out-the-farewell-tour-new-york.jpg",
-      category: 'On Stage',
-      caption:
-        'Peace Out — The Farewell Tour, New York. Confetti, tears, and 50 years of rock.',
-      size: 'col-span-1 md:col-span-2 row-span-2'
-    },
-    {
-      url: "/steven_tyler_fans_3.jpg",
-      category: 'On Stage',
-      caption: "The Demon of Screamin' — Full throttle, no holding back",
-      size: 'col-span-1'
-    },
-    {
-      url: "/steven_tyler_meet_and_greet_2.webp",
-      category: 'Fan Moments',
-      caption: 'One of the guys — Steven Tyler hanging with fans',
-      size: 'col-span-1'
-    },
-    {
-      url: "/steven_tyler_meet_and_greet.jpg",
-      category: 'Fan Moments',
-      caption: 'A moment to remember — Steven Tyler with a lucky fan',
-      size: 'col-span-1 row-span-2'
-    },
-    {
-      url: "/steven_tyler_fans.jpg",
-      category: 'Fan Moments',
-      caption: 'Signing autographs — Always time for the fans',
-      size: 'col-span-1'
-    }];
+export function GallerySection() {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState('All');
 
   const filteredImages =
     activeTab === 'All' ?
-      images :
-      images.filter((img) => img.category === activeTab);
+      galleryImages :
+      galleryImages.filter((img) => img.category === activeTab);
+
+  const handlePrevious = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex(selectedImageIndex === 0 ? filteredImages.length - 1 : selectedImageIndex - 1);
+    }
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex(selectedImageIndex === filteredImages.length - 1 ? 0 : selectedImageIndex + 1);
+    }
+  };
+
   return (
     <section id="gallery" className="py-24 bg-[#0a0a0a] text-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -126,13 +42,12 @@ export function GallerySection() {
 
         {/* Tabs */}
         <ScrollReveal>
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((cat) =>
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {galleryCategories.map((cat) =>
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`px-4 py-2 text-sm uppercase tracking-wider transition-colors ${activeTab === cat ? 'text-[#d4af37] border-b-2 border-[#d4af37]' : 'text-gray-500 hover:text-white'}`}>
-
+                className={`px-5 py-2.5 text-sm uppercase tracking-wider font-medium rounded-full transition-all duration-300 ${activeTab === cat ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)]' : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'}`}>
                 {cat}
               </button>
             )}
@@ -140,27 +55,28 @@ export function GallerySection() {
         </ScrollReveal>
 
         {/* Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {filteredImages.map((img, index) =>
             <ScrollReveal
-              key={index}
-              delay={index * 0.1}
-              className={`${img.size} relative group overflow-hidden rounded-lg cursor-pointer`}>
+              key={img.url}
+              delay={(index % 10) * 0.1}
+              className={`relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid shadow-lg`}>
 
               <div
-                onClick={() => setSelectedImage(img.url)}
-                className="h-full w-full">
+                onClick={() => setSelectedImageIndex(index)}
+                className="w-full">
 
                 <img
                   src={img.url}
                   alt={img.caption}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  loading="lazy"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
 
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                  <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300" />
-                </div>
-                <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 w-10 h-10 drop-shadow-md" />
+                  </div>
+                  <p className="text-white text-sm md:text-base font-medium relative z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 drop-shadow-md">
                     {img.caption}
                   </p>
                 </div>
@@ -171,22 +87,44 @@ export function GallerySection() {
       </div>
 
       {/* Lightbox */}
-      {selectedImage &&
+      {selectedImageIndex !== null &&
         <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}>
-
-          <button className="absolute top-8 right-8 text-white hover:text-[#d4af37] transition-colors">
-            <X className="w-8 h-8" />
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setSelectedImageIndex(null)}>
+          
+          <button className="absolute top-6 right-6 text-white/70 hover:text-[#d4af37] transition-colors p-2 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md z-50">
+            <X className="w-6 h-6" />
           </button>
-          <img
-            src={selectedImage}
-            alt="Gallery Fullscreen"
-            className="max-w-full max-h-[90vh] object-contain rounded shadow-2xl"
-            onClick={(e) => e.stopPropagation()} />
+
+          <button 
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-[#d4af37] transition-colors p-3 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md"
+            onClick={handlePrevious}
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
+
+          <div className="relative max-w-5xl w-full mx-auto flex flex-col items-center justify-center h-full max-h-[90vh]">
+             <img
+              src={filteredImages[selectedImageIndex].url}
+              alt={filteredImages[selectedImageIndex].caption}
+              className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()} 
+             />
+             <div className="mt-6 text-center" onClick={(e) => e.stopPropagation()}>
+               <p className="text-[#d4af37] text-sm uppercase tracking-widest font-semibold mb-2">{filteredImages[selectedImageIndex].category}</p>
+               <p className="text-white text-lg">{filteredImages[selectedImageIndex].caption}</p>
+             </div>
+          </div>
+
+          <button 
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-[#d4af37] transition-colors p-3 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md"
+            onClick={handleNext}
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
 
         </div>
       }
-    </section>);
-
+    </section>
+  );
 }

@@ -70,61 +70,61 @@ export function AerosmithSection() {
       title: 'Aerosmith',
       year: '1973',
       hit: 'Dream On',
-      coverImage: '/images/albums/Aerosmith.jpg'
+      coverImage: '/assets/albums/Aerosmith.jpg'
     },
     {
       title: 'Get Your Wings',
       year: '1974',
       hit: "Train Kept A-Rollin'",
-      coverImage: '/images/albums/Get_Your_Wings.jpg'
+      coverImage: '/assets/albums/Get_Your_Wings.jpg'
     },
     {
       title: 'Toys in the Attic',
       year: '1975',
       hit: 'Walk This Way',
-      coverImage: '/images/albums/Toys_in_the_Attic.jpg'
+      coverImage: '/assets/albums/Toys_in_the_Attic.jpg'
     },
     {
       title: 'Rocks',
       year: '1976',
       hit: 'Back in the Saddle',
-      coverImage: '/images/albums/Rocks.jpg'
+      coverImage: '/assets/albums/Rocks.jpg'
     },
     {
       title: 'Permanent Vacation',
       year: '1987',
       hit: 'Dude (Looks Like a Lady)',
-      coverImage: '/images/albums/Permanent_Vacation.jpg'
+      coverImage: '/assets/albums/Permanent_Vacation.jpg'
     },
     {
       title: 'Pump',
       year: '1989',
       hit: 'Love in an Elevator',
-      coverImage: '/images/albums/Pump.jpg'
+      coverImage: '/assets/albums/Pump.jpg'
     },
     {
       title: 'Get a Grip',
       year: '1993',
       hit: "Cryin'",
-      coverImage: '/images/albums/Get_a_Grip.jpg'
+      coverImage: '/assets/albums/Get_a_Grip.jpg'
     },
     {
       title: 'Nine Lives',
       year: '1997',
       hit: 'Pink',
-      coverImage: '/images/albums/Nine_Lives.jpg'
+      coverImage: '/assets/albums/Nine_Lives.jpg'
     },
     {
       title: 'Just Push Play',
       year: '2001',
       hit: 'Jaded',
-      coverImage: '/images/albums/Just_Push_Play.jpg'
+      coverImage: '/assets/albums/Just_Push_Play.jpg'
     },
     {
       title: 'Music from Another Dimension!',
       year: '2012',
       hit: 'Lover Alot',
-      coverImage: '/images/albums/Music_from_Another_Dimension.jpg'
+      coverImage: '/assets/albums/Music_from_Another_Dimension.jpg'
     }];
 
   return (
@@ -138,7 +138,7 @@ export function AerosmithSection() {
           className="absolute inset-0 w-full h-full"
         >
           <img
-            src="/download_(26).jpg"
+            src="/assets/images/download_(26).jpg"
             alt="Aerosmith Band"
             className="w-full h-full object-cover object-top scale-110"
           />
@@ -222,10 +222,10 @@ export function AerosmithSection() {
                 muted
                 loop
                 playsInline
-                poster="/download_(26).jpg">
+                poster="/assets/images/download_(26).jpg">
 
                 <source
-                  src="/steven_tyler_perfomance_(1).undefined"
+                  src="/assets/videos/steven_tyler_perfomance_(1).undefined"
                   type="video/mp4" />
 
                 Your browser does not support the video tag.
@@ -248,7 +248,7 @@ export function AerosmithSection() {
               style={{ y: useTransform(scrollYProgress, [0.5, 1], ["0%", "-20%"]) }}
             >
               <img
-                src="/_3_Aerosmith__3_Cs.jpg"
+                src="/assets/images/_3_Aerosmith__3_Cs.jpg"
                 alt="Walk This Way Graffiti"
                 className="w-full h-full object-cover"
               />

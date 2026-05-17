@@ -13,7 +13,7 @@ export function DiscographySection() {
       title: 'Aerosmith',
       year: '1973',
       decade: '70s',
-      coverImage: '/images/albums/Aerosmith.jpg',
+      coverImage: '/assets/albums/Aerosmith.jpg',
       tracks: [
         'Make It',
         'Somebody',
@@ -29,7 +29,7 @@ export function DiscographySection() {
       title: 'Get Your Wings',
       year: '1974',
       decade: '70s',
-      coverImage: '/images/albums/Get_Your_Wings.jpg',
+      coverImage: '/assets/albums/Get_Your_Wings.jpg',
       tracks: [
         'Same Old Song and Dance',
         'Lord of the Thighs',
@@ -45,7 +45,7 @@ export function DiscographySection() {
       title: 'Toys in the Attic',
       year: '1975',
       decade: '70s',
-      coverImage: '/images/albums/Toys_in_the_Attic.jpg',
+      coverImage: '/assets/albums/Toys_in_the_Attic.jpg',
       tracks: [
         'Toys in the Attic',
         'Uncle Salty',
@@ -62,7 +62,7 @@ export function DiscographySection() {
       title: 'Rocks',
       year: '1976',
       decade: '70s',
-      coverImage: '/images/albums/Rocks.jpg',
+      coverImage: '/assets/albums/Rocks.jpg',
       tracks: [
         'Back in the Saddle',
         'Last Child',
@@ -79,7 +79,7 @@ export function DiscographySection() {
       title: 'Draw the Line',
       year: '1977',
       decade: '70s',
-      coverImage: '/images/albums/Draw_the_Line.jpg',
+      coverImage: '/assets/albums/Draw_the_Line.jpg',
       tracks: [
         'Draw the Line',
         'I Wanna Know Why',
@@ -96,7 +96,7 @@ export function DiscographySection() {
       title: 'Night in the Ruts',
       year: '1979',
       decade: '70s',
-      coverImage: '/images/albums/Night_in_the_Ruts.jpg',
+      coverImage: '/assets/albums/Night_in_the_Ruts.jpg',
       tracks: [
         'No Surprize',
         'Chiquita',
@@ -113,7 +113,7 @@ export function DiscographySection() {
       title: 'Rock in a Hard Place',
       year: '1982',
       decade: '80s',
-      coverImage: '/images/albums/Rock_in_a_Hard_Place.jpg',
+      coverImage: '/assets/albums/Rock_in_a_Hard_Place.jpg',
       tracks: [
         'Jailbait',
         'Lightning Strikes',
@@ -131,7 +131,7 @@ export function DiscographySection() {
       title: 'Done with Mirrors',
       year: '1985',
       decade: '80s',
-      coverImage: '/images/albums/Done_with_Mirrors.jpg',
+      coverImage: '/assets/albums/Done_with_Mirrors.jpg',
       tracks: [
         'Let the Music Do the Talking',
         'My Fist Your Face',
@@ -147,7 +147,7 @@ export function DiscographySection() {
       title: 'Permanent Vacation',
       year: '1987',
       decade: '80s',
-      coverImage: '/images/albums/Permanent_Vacation.jpg',
+      coverImage: '/assets/albums/Permanent_Vacation.jpg',
       tracks: [
         "Heart's Done Time",
         'Magic Touch',
@@ -165,7 +165,7 @@ export function DiscographySection() {
       title: 'Pump',
       year: '1989',
       decade: '80s',
-      coverImage: '/images/albums/Pump.jpg',
+      coverImage: '/assets/albums/Pump.jpg',
       tracks: [
         'Young Lust',
         'F.I.N.E.',
@@ -183,7 +183,7 @@ export function DiscographySection() {
       title: 'Get a Grip',
       year: '1993',
       decade: '90s',
-      coverImage: '/images/albums/Get_a_Grip.jpg',
+      coverImage: '/assets/albums/Get_a_Grip.jpg',
       tracks: [
         'Intro',
         'Eat the Rich',
@@ -205,7 +205,7 @@ export function DiscographySection() {
       title: 'Nine Lives',
       year: '1997',
       decade: '90s',
-      coverImage: '/images/albums/Nine_Lives.jpg',
+      coverImage: '/assets/albums/Nine_Lives.jpg',
       tracks: [
         'Nine Lives',
         'Falling in Love (Is Hard on the Knees)',
@@ -227,7 +227,7 @@ export function DiscographySection() {
       title: 'Just Push Play',
       year: '2001',
       decade: '2000s',
-      coverImage: '/images/albums/Just_Push_Play.jpg',
+      coverImage: '/assets/albums/Just_Push_Play.jpg',
       tracks: [
         'Beyond Beautiful',
         'Just Push Play',
@@ -247,7 +247,7 @@ export function DiscographySection() {
       title: 'Honkin’ on Bobo',
       year: '2004',
       decade: '2000s',
-      coverImage: '/images/albums/Honkin_on_Bobo.jpg',
+      coverImage: '/assets/albums/Honkin_on_Bobo.jpg',
       tracks: [
         'Road Runner',
         'Shame, Shame, Shame',
@@ -267,7 +267,7 @@ export function DiscographySection() {
       title: 'Music from Another Dimension!',
       year: '2012',
       decade: '2000s',
-      coverImage: '/images/albums/Music_from_Another_Dimension.jpg',
+      coverImage: '/assets/albums/Music_from_Another_Dimension.jpg',
       tracks: [
         'Luv XXX',
         'Oh Yeah',
@@ -290,7 +290,7 @@ export function DiscographySection() {
       title: "We're All Somebody from Somewhere",
       year: '2016',
       decade: 'Solo',
-      coverImage: '/images/albums/Were_All_Somebody_from_Somewhere.jpg',
+      coverImage: '/assets/albums/Were_All_Somebody_from_Somewhere.jpg',
       tracks: [
         'My Own Worst Enemy',
         "We're All Somebody from Somewhere",

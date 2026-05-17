@@ -7,42 +7,42 @@ export function ShopSection() {
       name: 'Steven Tyler Signature Scarf',
       price: '$890.00',
       category: 'Accessories',
-      image: '/images/merch/scarf.jpg',
+      image: '/assets/images/merch/scarf.jpg',
       tag: 'Best Seller'
     },
     {
       name: 'Vintage Tour Tee 1976',
       price: '$450.00',
       category: 'Apparel',
-      image: '/images/merch/tshirt.jpg',
+      image: '/assets/images/merch/tshirt.jpg',
       tag: null
     },
     {
       name: "'Dream On' Limited Vinyl",
       price: '$650.00',
       category: 'Music',
-      image: '/images/merch/vinyl.jpg',
+      image: '/assets/images/merch/vinyl.jpg',
       tag: 'Limited Edition'
     },
     {
       name: 'Signed Guitar Pick Set',
       price: '$350.00',
       category: 'Collectibles',
-      image: '/images/merch/guitar_pick.jpg',
+      image: '/assets/images/merch/guitar_pick.jpg',
       tag: null
     },
     {
       name: 'Wings Logo Hoodie',
       price: '$750.00',
       category: 'Apparel',
-      image: '/images/merch/hoodie.jpg',
+      image: '/assets/images/merch/hoodie.jpg',
       tag: 'New Arrival'
     },
     {
       name: 'Autobiography',
       price: '$300.00',
       category: 'Books',
-      image: '/images/merch/biography.jpg',
+      image: '/assets/images/merch/biography.jpg',
       tag: null
     }];
 

@@ -7,9 +7,12 @@ import { FanbaseSection } from './components/sections/FanbaseSection';
 import { AerosmithSection } from './components/sections/AerosmithSection';
 import { DiscographySection } from './components/sections/DiscographySection';
 import { TimelineSection } from './components/sections/TimelineSection';
-
 import { GallerySection } from './components/sections/GallerySection';
 import { ContactSection } from './components/sections/ContactSection';
+import { JaniesFundSection } from './components/sections/JaniesFundSection';
+import { TermsSection } from './components/sections/TermsSection';
+import { PrivacySection } from './components/sections/PrivacySection';
+
 export function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-inter selection:bg-[#d4af37] selection:text-black">
@@ -23,9 +26,12 @@ export function App() {
           <Route path="/timeline" element={<TimelineSection />} />
           <Route path="/gallery" element={<GallerySection />} />
           <Route path="/contact" element={<ContactSection />} />
+          <Route path="/janies-fund" element={<JaniesFundSection />} />
+          <Route path="/terms" element={<TermsSection />} />
+          <Route path="/privacy" element={<PrivacySection />} />
         </Routes>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

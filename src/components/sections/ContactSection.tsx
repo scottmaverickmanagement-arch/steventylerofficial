@@ -39,30 +39,73 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <form className="space-y-4">
+              <form onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const nameInput = form.elements.namedItem('name') as HTMLInputElement;
+                const emailInput = form.elements.namedItem('email') as HTMLInputElement;
+                const subjectInput = form.elements.namedItem('subject') as HTMLInputElement;
+                const messageInput = form.elements.namedItem('message') as HTMLTextAreaElement;
+                const button = form.querySelector('button');
+                if (button) button.disabled = true;
+                
+                try {
+                  const res = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                      type: 'contact', 
+                      data: { 
+                        name: nameInput.value, 
+                        email: emailInput.value,
+                        subject: subjectInput.value,
+                        message: messageInput.value
+                      } 
+                    })
+                  });
+                  
+                  if (res.ok) {
+                    alert('Message sent successfully! We will get back to you shortly.');
+                    form.reset();
+                  } else {
+                    alert('Failed to send message. Please try again later.');
+                  }
+                } catch (error) {
+                  alert('An error occurred. Please try again.');
+                } finally {
+                  if (button) button.disabled = false;
+                }
+              }} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <input
                     type="text"
+                    name="name"
+                    required
                     placeholder="Name"
                     className="bg-[#1a1a1a] border border-gray-800 rounded p-3 text-white focus:border-[#d4af37] focus:outline-none w-full" />
 
                   <input
                     type="email"
+                    name="email"
+                    required
                     placeholder="Email"
                     className="bg-[#1a1a1a] border border-gray-800 rounded p-3 text-white focus:border-[#d4af37] focus:outline-none w-full" />
 
                 </div>
                 <input
                   type="text"
+                  name="subject"
                   placeholder="Subject"
                   className="bg-[#1a1a1a] border border-gray-800 rounded p-3 text-white focus:border-[#d4af37] focus:outline-none w-full" />
 
                 <textarea
+                  name="message"
                   rows={4}
+                  required
                   placeholder="Message"
                   className="bg-[#1a1a1a] border border-gray-800 rounded p-3 text-white focus:border-[#d4af37] focus:outline-none w-full">
                 </textarea>
-                <button className="px-8 py-3 bg-[#d4af37] text-black font-bold uppercase tracking-wider hover:bg-white transition-colors rounded">
+                <button type="submit" className="px-8 py-3 bg-[#d4af37] text-black font-bold uppercase tracking-wider hover:bg-white transition-colors rounded disabled:opacity-50">
                   Send Message
                 </button>
               </form>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Instagram, Twitter, Youtube, Facebook, Music } from 'lucide-react';
 export function Footer() {
   return (
@@ -16,16 +17,45 @@ export function Footer() {
               Stay connected with the legend. Join the newsletter for updates on
               releases, charity work, and exclusive content.
             </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-[#1a1a1a] border border-gray-800 rounded px-4 py-2 text-white focus:border-[#d4af37] focus:outline-none" />
+            <form onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target as HTMLFormElement;
+              const emailInput = form.elements.namedItem('email') as HTMLInputElement;
+              const button = form.querySelector('button');
+              if (button) button.disabled = true;
+              
+              try {
+                const res = await fetch('/api/send-email', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ type: 'newsletter', data: { email: emailInput.value } })
+                });
+                
+                if (res.ok) {
+                  alert('Thank you for subscribing! Please check your email.');
+                  emailInput.value = '';
+                } else {
+                  alert('Failed to subscribe. Please try again later.');
+                }
+              } catch (error) {
+                alert('An error occurred. Please try again.');
+              } finally {
+                if (button) button.disabled = false;
+              }
+            }} className="flex flex-col gap-2">
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Enter your email"
+                  className="bg-[#1a1a1a] border border-gray-800 rounded px-4 py-2 text-white focus:border-[#d4af37] focus:outline-none flex-grow" />
 
-              <button className="px-4 py-2 bg-[#8b0000] text-white font-bold rounded hover:bg-[#a00000] transition-colors">
-                Subscribe
-              </button>
-            </div>
+                <button type="submit" className="px-4 py-2 bg-[#8b0000] text-white font-bold rounded hover:bg-[#a00000] transition-colors disabled:opacity-50">
+                  Subscribe
+                </button>
+              </div>
+            </form>
           </div>
 
           <div>
@@ -119,15 +149,15 @@ export function Footer() {
         <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
           <p>© 2025 Steven Tyler. All Rights Reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-gray-400">
+            <Link to="/privacy" className="hover:text-gray-400">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-gray-400">
+            </Link>
+            <Link to="/terms" className="hover:text-gray-400">
               Terms of Service
-            </a>
-            <a href="#" className="hover:text-[#d4af37]">
+            </Link>
+            <Link to="/janies-fund" className="hover:text-[#d4af37]">
               Janie's Fund
-            </a>
+            </Link>
           </div>
         </div>
       </div>

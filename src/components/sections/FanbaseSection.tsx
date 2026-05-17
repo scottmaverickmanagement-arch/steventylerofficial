@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { Ticket, Music, Gift, Video, Star, Mail, Heart, ExternalLink } from 'lucide-react';
 export function FanbaseSection() {
@@ -23,13 +24,6 @@ export function FanbaseSection() {
       title: 'Exclusive Content',
       desc: 'Behind-the-scenes footage, early demos, and members-only vlogs.'
     }];
-
-  const emailSubject = 'Membership Inquiry for Steven Tyler Fanbase';
-  const emailBody = `Hi Rebecca,
-
-I'm interested in joining the exclusive Steven Tyler fanbase. Please provide payment details for the $500 donation to Janie's Fund and instructions on how to proceed.
-
-Thank you!`;
 
   return (
     <section
@@ -110,7 +104,7 @@ Thank you!`;
                     Membership Contribution
                   </p>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    Membership requires a <span className="text-[#d4af37] font-bold">$500 donation to Janie's Fund</span>, Steven Tyler's charity dedicated to helping abused and neglected girls. Your manager will provide secure payment instructions and confirm your access.
+                    Membership requires a <span className="text-[#d4af37] font-bold">$3,000 donation to Janie's Fund</span>, Steven Tyler's charity dedicated to helping abused and neglected girls. Your manager will provide secure payment instructions and confirm your access.
                   </p>
                 </div>
                 <p className="text-xs text-gray-500 italic">
@@ -119,12 +113,55 @@ Thank you!`;
               </div>
 
               {/* Contact Manager CTA */}
-              <a
-                href={`mailto:rebecca@steventylerofficial.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`}
-                className="w-full py-4 bg-[#8b0000] hover:bg-[#a00000] text-white font-bold uppercase tracking-widest transition-colors rounded shadow-[0_0_20px_rgba(139,0,0,0.4)] hover:shadow-[0_0_30px_rgba(139,0,0,0.6)] flex items-center justify-center gap-2 mb-6">
-                <Mail className="w-5 h-5" />
-                Contact Manager to Join
-              </a>
+              <form onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const nameInput = form.elements.namedItem('name') as HTMLInputElement;
+                const emailInput = form.elements.namedItem('email') as HTMLInputElement;
+                const button = form.querySelector('button');
+                if (button) button.disabled = true;
+                
+                try {
+                  const res = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'fanclub', data: { name: nameInput.value, email: emailInput.value } })
+                  });
+                  
+                  if (res.ok) {
+                    alert('Request submitted! Please check your email for the next steps.');
+                    nameInput.value = '';
+                    emailInput.value = '';
+                  } else {
+                    alert('Failed to submit request. Please try again later.');
+                  }
+                } catch (error) {
+                  alert('An error occurred. Please try again.');
+                } finally {
+                  if (button) button.disabled = false;
+                }
+              }} className="space-y-4 mb-6">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your Full Name"
+                  className="w-full bg-[#1a1a1a] border border-gray-800 rounded p-3 text-white focus:border-[#d4af37] focus:outline-none" 
+                />
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Your Email Address"
+                  className="w-full bg-[#1a1a1a] border border-gray-800 rounded p-3 text-white focus:border-[#d4af37] focus:outline-none" 
+                />
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-[#8b0000] hover:bg-[#a00000] text-white font-bold uppercase tracking-widest transition-colors rounded shadow-[0_0_20px_rgba(139,0,0,0.4)] hover:shadow-[0_0_30px_rgba(139,0,0,0.6)] flex items-center justify-center gap-2 disabled:opacity-50">
+                  <Mail className="w-5 h-5" />
+                  Contact Manager to Join
+                </button>
+              </form>
 
               {/* Janie's Fund Info */}
               <div className="bg-black/30 p-4 rounded-lg mb-6 border border-gray-800">
@@ -143,16 +180,9 @@ Thank you!`;
 
               {/* Terms & Privacy */}
               <p className="text-xs text-gray-500 mb-4">
-                By joining, you agree to our <a href="#" className="text-[#d4af37] hover:underline">Terms of Service</a> and <a href="#" className="text-[#d4af37] hover:underline">Privacy Policy</a>. You'll receive updates about Steven Tyler and Aerosmith.
+                By joining, you agree to our <Link to="/terms" className="text-[#d4af37] hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-[#d4af37] hover:underline">Privacy Policy</Link>. You'll receive updates about Steven Tyler and Aerosmith.
               </p>
 
-              {/* Login Link */}
-              <p className="text-center text-xs text-gray-500">
-                Already a member?{' '}
-                <a href="#login" className="text-[#d4af37] hover:underline">
-                  Log in here
-                </a>
-              </p>
             </div>
           </ScrollReveal>
         </div>
