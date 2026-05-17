@@ -178,31 +178,6 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Janie's Fund Small Video Card (Floating) */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-24 right-4 md:right-8 w-64 md:w-80 rounded-xl overflow-hidden shadow-2xl border border-gray-800 z-20 group bg-black"
-        >
-          <Link to="/janies-fund" className="block relative w-full aspect-video">
-            <video
-              src="/assets/videos/iamstevent_1555611808_2024938674533668075_1073840412.mp4"
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <h4 className="text-white font-playfair font-bold text-sm md:text-base tracking-wide flex items-center justify-between">
-                <span>Janie's Fund</span>
-                <ArrowRight className="w-4 h-4 text-[#d4af37]" />
-              </h4>
-            </div>
-          </Link>
-        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div
