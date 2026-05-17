@@ -205,7 +205,7 @@ export default async function handler(req: any, res: any) {
         adminEmailOptions = {
           from: 'Steven Tyler Management <management@steventylerofficial.com>',
           to: 'management@steventylerofficial.com',
-          subject: \`New Contact Submission: \${data.subject || 'No Subject'}\`,
+          subject: `New Contact Submission: ${data.subject || 'No Subject'}`,
           html: getEmailTemplate(`
             <h2>New Contact Form Submission</h2>
             <p>A new message was received from the website contact form:</p>
